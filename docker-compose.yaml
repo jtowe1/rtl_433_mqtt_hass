@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/usr/src/app
+    command: python ./rtl_433_mqtt_hass.py --host 10.0.0.245 --retain --debug
+    environment:
+      - PYTHONUNBUFFERED=1
